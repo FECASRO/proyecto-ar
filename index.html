@@ -7,22 +7,19 @@
 </head>
 <body>
   <a-scene mindar-image="imageTargetSrc: ./objetivos.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    
+    <a-assets>
+      <img id="ficha" src="ficha.jpg">
+    </a-assets>
+
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity id="target" mindar-image-target="targetIndex: 0">
-      <a-plane color="#000" height="0.2" width="0.5" opacity="0.5">
-        <a-text value="Cargando ficha..." align="center" width="1"></a-text>
-      </a-plane>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-image src="#ficha" position="0 0 0.1" width="1" height="1.4"></a-image>
+      
+      <a-text value="Plaza Mayor de Salamanca" align="center" color="white" position="0 -0.8 0.1" width="2"></a-text>
     </a-entity>
+    
   </a-scene>
-
-  <script>
-    const targetEl = document.querySelector('#target');
-    // Cuando detecta el cuadro (targetFound), redirige a la ficha
-    targetEl.addEventListener("targetFound", event => {
-      console.log("Cuadro detectado");
-      window.location.href = "./ficha_artista.html"; 
-    });
-  </script>
 </body>
 </html>
