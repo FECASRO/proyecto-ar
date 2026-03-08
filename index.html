@@ -6,32 +6,19 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-  
   <a-scene 
-    mindar-image="imageTargetSrc: ./target.mind; autoStart: true; maxTrack: 1" 
+    mindar-image="imageTargetSrc: ./target.mind; autoStart: true; uiScanning: true;" 
     color-space="sRGB" 
-    renderer="colorManagement: true, physicallyCorrectLights: true" 
+    renderer="colorManagement: true" 
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
     
-    <a-assets>
-      <img id="fichaArtista" src="obra_destacada.jpg">
-    </a-assets>
-
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-   <a-entity mindar-image-target="targetIndex: 0">
-  <a-box color="red" position="0 0 0.5" scale="0.5 0.5 0.5"></a-box>
-  
-  <a-text 
-    value="SISTEMA FUNCIONANDO" 
-    align="center" 
-    color="white" 
-    position="0 -0.5 0.5" 
-    width="2">
-  </a-text>
-</a-entity>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-box color="red" scale="0.5 0.5 0.5"></a-box>
+    </a-entity>
+    
   </a-scene>
 </body>
 </html>
-
