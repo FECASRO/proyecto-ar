@@ -22,7 +22,13 @@
   </a-scene>
 </body>
   <script>
+  window.addEventListener('error', function(e) {
+    alert("Error detectado: " + e.message);
+  });
+</script>
+  <script>
   alert("El código se está ejecutando");
 </script>
 </html>
+
 
