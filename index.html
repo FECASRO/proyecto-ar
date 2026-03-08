@@ -4,45 +4,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-  <style>
-    /* Texto de estado para saber si el sistema está listo */
-    #status { position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.5); color: white; padding: 5px; z-index: 9999; font-family: monospace; }
-  </style>
 </head>
 <body>
-  <div id="status">Iniciando sistema...</div>
-
+  
   <a-scene 
-    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; maxTrack: 1" 
+    mindar-image="imageTargetSrc: ./target.mind; autoStart: true; maxTrack: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights: true" 
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
     
+    <a-assets>
+      <img id="fichaArtista" src="obra_destacada.jpg">
+    </a-assets>
+
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity id="example-target" mindar-image-target="targetIndex: 0">
-      <a-plane color="blue" opacity="0.7" position="0 0 0" height="1" width="1"></a-plane>
-      <a-text value="SISTEMA ACTIVO" align="center" color="#FFF" position="0 0 0.1"></a-text>
+    <a-entity mindar-image-target="targetIndex: 0">
+      
+      <a-image src="#fichaArtista" position="0 0 0" scale="1 1 1"></a-image>
+      
+      <a-text 
+        value="Plaza Mayor\nFelipe Castillo Holgado" 
+        align="center" 
+        color="#FFFFFF" 
+        position="0 -0.8 0.1" 
+        width="2">
+      </a-text>
+
     </a-entity>
   </a-scene>
-
-  <script>
-    const status = document.querySelector('#status');
-    const sceneEl = document.querySelector('a-scene');
-
-    // Avisar si la escena cargó
-    sceneEl.addEventListener("renderstart", () => {
-      status.innerText = "Cámara activa. Apunta al QR.";
-    });
-
-    // Avisar si detectó el objetivo
-    const targetEl = document.querySelector('#example-target');
-    targetEl.addEventListener("targetFound", () => {
-      status.innerText = "¡OBJETIVO DETECTADO!";
-      status.style.background = "green";
-    });
-  </script>
 </body>
 </html>
-
