@@ -6,28 +6,17 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-  <a-scene mindar-image="imageTargetSrc: ./objetivos.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <a-scene mindar-image="imageTargetSrc: ./target.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
     
     <a-assets>
-      <img id="cuadroFlotante" src="obra_destacada.jpg">
+      <img id="fichaArtista" src="tu-imagen.jpg">
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-      
-      <a-image src="#cuadroFlotante" position="0 0.2 0.1" width="1" height="0.75"></a-image>
-
-      <a-plane color="#000" opacity="0.6" position="0 -0.4 0.1" width="1" height="0.3"></a-plane>
-
-      <a-text 
-        value="Obra: Atardecer en la Plaza\nArtista: [Nombre Completo]\nAño: 2023" 
-        align="center" 
-        color="#FFF" 
-        position="0 -0.4 0.11" 
-        width="1.8">
-      </a-text>
-
+      <a-image src="#fichaArtista" position="0 0 0.1" scale="1.5 1.5 1.5"></a-image>
+      <a-text value="Plaza Mayor\nSalamanca" align="center" color="white" position="0 -1 0.1" width="2"></a-text>
     </a-entity>
     
   </a-scene>
