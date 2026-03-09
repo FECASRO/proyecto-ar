@@ -6,7 +6,6 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-  
   <a-scene 
     mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: true;" 
     color-space="sRGB" 
@@ -14,21 +13,24 @@
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
     
+    <a-assets>
+      <img id="miFoto" src="obra_destacada.jpg">
+    </a-assets>
+
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-      <a-box color="red" scale="0.5 0.5 0.5"></a-box>
+      <a-image src="#miFoto" position="0 0 0" scale="1 0.75 1"></a-image>
+      
+      <a-text 
+        value="Plaza Mayor\nFelipe Castillo Holgado" 
+        align="center" 
+        color="#FFFFFF" 
+        position="0 -0.7 0" 
+        width="2">
+      </a-text>
     </a-entity>
     
   </a-scene>
-
-  <script>
-    // Esto es solo para verificar que carga
-    console.log("Sistema cargado");
-  </script>
 </body>
 </html>
-
-
-
-
