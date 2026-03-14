@@ -6,38 +6,37 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-  <a-scene 
-    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: true;" 
-    color-space="sRGB" 
-    renderer="colorManagement: true" 
-    vr-mode-ui="enabled: false" 
-    device-orientation-permission-ui="enabled: false">
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true" vr-mode-ui="enabled: false">
     
     <a-assets>
-      <img id="miFoto" src="obra_destacada.jpg">
+      <img id="fondo1" src="obra_destacada.jpg">
+      <img id="fondo2" src="segunda_obra_fondo.jpg">
+      <img id="detalle2" src="segunda_obra_detalle.jpg">
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-      
-      <a-image 
-        src="#miFoto" 
-        position="0 0 0.1" 
-        scale="4 4 4">
-      </a-image>
-      
-      <a-text 
-        value="Plaza Mayor\nFelipe Castillo Holgado" 
-        align="center" 
-        color="#FFFFFF" 
-        position="0 -1.5 0.2" 
-        width="3">
-      </a-text>
+      <a-image src="#fondo1" position="0 0 0" scale="2.5 2.5 2.5"></a-image>
+      <a-text value="Plaza Mayor\nFelipe Castillo Holgado" align="center" position="0 -1.5 0.1" width="3"></a-text>
+    </a-entity>
 
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-image src="#fondo2" position="0 0 0" scale="2.5 2.5 2.5"></a-image>
+      
+      <a-image src="#detalle2" position="0 0.2 0.4" scale="1.2 1.2 1.2"></a-image>
+
+      <a-entity position="0 -1.2 0.3">
+        <a-plane color="#000" opacity="0.6" width="3" height="0.6" position="0 0 -0.01"></a-plane>
+        <a-text 
+          value="La frase que inspiro este cuadro fue sacada de una pelicula" 
+          align="center" 
+          color="#FFD700" 
+          width="2.8">
+        </a-text>
+      </a-entity>
     </a-entity>
     
   </a-scene>
 </body>
 </html>
-
